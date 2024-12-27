@@ -3,7 +3,7 @@
     "formateOptions": {
       "snippentInterface": "async-await"
     },
-    "paths": ["src/test/features/"],
+    "paths": ["src/test/features/login_scenario.feature"],
     "publishQuite": true,
     "dryRun": false,
     "require": ["src/test/steps/*.ts"],
