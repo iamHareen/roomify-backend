@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import ApiService from '../../service/ApiService'
 
 
-function Navbar() {
+const NavbarComponent = () => {
 
     const isAuthenticated = ApiService.isAuthenticated();
     const isAdmin = ApiService.isAdmin();
@@ -22,7 +22,7 @@ function Navbar() {
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <NavLink to="/home">Phegon Hotel</NavLink>
+                <NavLink to="/home"> CR Hotel</NavLink>
             </div>
             <ul className="navbar-ul">
                 <li><NavLink to="/home" activeclassname="active">Home</NavLink></li>
@@ -40,5 +40,5 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default NavbarComponent
 
