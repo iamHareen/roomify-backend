@@ -10,6 +10,7 @@ import com.hdev.roomify.service.interfac.IUserService;
 import com.hdev.roomify.utils.JWTUtils;
 import com.hdev.roomify.utils.Utils;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,12 +20,13 @@ import java.util.List;
 
 @Data
 @Service
+@RequiredArgsConstructor
 public class UserService implements IUserService {
 
-    private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
-    private JWTUtils jwtUtils;
-    private AuthenticationManager authenticationManager;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JWTUtils jwtUtils;
+    private final AuthenticationManager authenticationManager;
 
 
     @Override

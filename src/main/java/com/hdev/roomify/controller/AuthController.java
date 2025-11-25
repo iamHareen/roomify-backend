@@ -6,6 +6,7 @@ import com.hdev.roomify.dto.ResponseDTO;
 import com.hdev.roomify.entity.User;
 import com.hdev.roomify.service.interfac.IUserService;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Data
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
-    private IUserService userService;
+    private final IUserService userService;
 
     @PostMapping("/register")
     public ResponseEntity<ResponseDTO> register(@RequestBody User user) {
