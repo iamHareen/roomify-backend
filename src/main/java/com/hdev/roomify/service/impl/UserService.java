@@ -73,9 +73,7 @@ public class UserService implements IUserService {
         } catch (GeneralException e) {
             response.setStatusCode(404);
             response.setMessage(e.getMessage());
-
         } catch (Exception e) {
-
             response.setStatusCode(500);
             response.setMessage("Error Occurred During User Login " + e.getMessage());
         }
