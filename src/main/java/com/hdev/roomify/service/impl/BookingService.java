@@ -13,6 +13,7 @@ import com.hdev.roomify.service.interfac.IBookingService;
 import com.hdev.roomify.service.interfac.IRoomService;
 import com.hdev.roomify.utils.Utils;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +21,13 @@ import java.util.List;
 
 @Data
 @Service
+@RequiredArgsConstructor
 public class BookingService implements IBookingService {
 
-    private BookingRepository bookingRepository;
-    private IRoomService roomService;
-    private RoomRepository roomRepository;
-    private UserRepository userRepository;
+    private final BookingRepository bookingRepository;
+    private final IRoomService roomService;
+    private final RoomRepository roomRepository;
+    private final UserRepository userRepository;
 
     @Override
     public ResponseDTO saveBooking(Long roomId, Long userId, Booking bookingRequest) {

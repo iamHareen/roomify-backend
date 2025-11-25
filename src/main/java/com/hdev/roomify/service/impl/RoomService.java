@@ -10,6 +10,7 @@ import com.hdev.roomify.service.AwsS3Service;
 import com.hdev.roomify.service.interfac.IRoomService;
 import com.hdev.roomify.utils.Utils;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,11 +21,12 @@ import java.util.List;
 
 @Data
 @Service
+@RequiredArgsConstructor
 public class RoomService implements IRoomService {
 
-    private RoomRepository roomRepository;
-    private BookingRepository bookingRepository;
-    private AwsS3Service awsS3Service;
+    private final RoomRepository roomRepository;
+    private final BookingRepository bookingRepository;
+    private final AwsS3Service awsS3Service;
 
     @Override
     public ResponseDTO addNewRoom(MultipartFile photo, String roomType, BigDecimal roomPrice, String description) {

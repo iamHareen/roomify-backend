@@ -4,6 +4,7 @@ package com.hdev.roomify.controller;
 import com.hdev.roomify.dto.ResponseDTO;
 import com.hdev.roomify.service.interfac.IUserService;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -13,9 +14,10 @@ import org.springframework.web.bind.annotation.*;
 @Data
 @RestController
 @RequestMapping("/users")
+@RequiredArgsConstructor
 public class UserController {
 
-    private IUserService userService;
+    private final IUserService userService;
 
 
     @GetMapping("/all")

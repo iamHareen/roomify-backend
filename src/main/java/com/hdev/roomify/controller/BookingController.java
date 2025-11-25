@@ -5,6 +5,7 @@ import com.hdev.roomify.dto.ResponseDTO;
 import com.hdev.roomify.entity.Booking;
 import com.hdev.roomify.service.interfac.IBookingService;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @Data
 @RestController
 @RequestMapping("/bookings")
+@RequiredArgsConstructor
 public class BookingController {
 
-    private IBookingService bookingService;
+    private final IBookingService bookingService;
 
     @PostMapping("/book-room/{roomId}/{userId}")
     @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")

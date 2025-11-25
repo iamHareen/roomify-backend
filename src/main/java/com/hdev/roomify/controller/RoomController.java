@@ -4,6 +4,7 @@ import com.hdev.roomify.dto.ResponseDTO;
 import com.hdev.roomify.service.interfac.IBookingService;
 import com.hdev.roomify.service.interfac.IRoomService;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,10 +18,11 @@ import java.util.List;
 @Data
 @RestController
 @RequestMapping("/rooms")
+@RequiredArgsConstructor
 public class RoomController {
 
-    private IRoomService roomService;
-    private IBookingService iBookingService;
+    private final IRoomService roomService;
+    private final IBookingService iBookingService;
 
 
     @PostMapping("/add")
