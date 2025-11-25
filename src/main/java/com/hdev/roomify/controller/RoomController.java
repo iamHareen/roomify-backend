@@ -1,9 +1,7 @@
 package com.hdev.roomify.controller;
 
 import com.hdev.roomify.dto.ResponseDTO;
-import com.hdev.roomify.service.interfac.IBookingService;
 import com.hdev.roomify.service.interfac.IRoomService;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +19,7 @@ import java.util.List;
 public class RoomController {
 
     private final IRoomService roomService;
-    private final IBookingService iBookingService;
-
+//    private final IBookingService iBookingService;
 
     @PostMapping("/add")
     @PreAuthorize("hasAuthority('ADMIN')")
