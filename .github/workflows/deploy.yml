@@ -5,7 +5,8 @@ on:
   push:
     branches:
       - deployment # Trigger on push to deployment branch
-      - main       # Trigger on push to main branch
+      - main # Trigger on push to main branch
+      - test # Trigger on push to test branch
   pull_request:
     branches:
       - deployment  # Trigger on PR to deployment branch
