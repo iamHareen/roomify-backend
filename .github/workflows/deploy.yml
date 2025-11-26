@@ -12,15 +12,12 @@ on:
       - deployment  # Trigger on PR to deployment branch
       - main        # Trigger on PR to main branch
 
-env:
-  DOCKER_IMAGE_NAME: roomify-backend
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v4
 
       - name: Set up JDK 21
@@ -29,6 +26,19 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+
+      - name: Analyze with SonarCloud
+        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
+        run: |
+          mvn clean verify sonar:sonar \
+            -D sonar.projectKey=$SONAR_PROJECT_KEY \
+            -D sonar.organization=$SONAR_ORGANIZATION \
+            -D sonar.host.url=https://sonarcloud.io \
+            -D sonar.token=$SONAR_TOKEN
 
       # Build without running tests (no DB needed)
       - name: Build with Maven
