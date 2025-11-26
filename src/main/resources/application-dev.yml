@@ -17,9 +17,6 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
 
-  profiles:
-    active: prod
-
 server:
   port: ${SERVER_PORT}
 
@@ -35,4 +32,3 @@ aws:
       key: ${AWS_S3_SECRET_KEY}
     bucket: ${AWS_S3_BUCKET_NAME}
   region: ${AWS_S3_REGION}
-
